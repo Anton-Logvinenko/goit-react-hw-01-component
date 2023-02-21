@@ -1,7 +1,7 @@
 import css from './TransactionHistory.module.css'
 
 export function TransactionHistory({ items }) {
-  const { id, type, amount, currency } = items;
+ 
   return (
     <table className={css.transactionHistory}>
       <thead>
