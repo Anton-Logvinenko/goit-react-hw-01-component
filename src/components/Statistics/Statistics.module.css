@@ -22,7 +22,12 @@
   align-items: center;
   padding: 30px 20px;
   border: 1px solid rgba(0, 0, 0, 0.226);
+  background-color: #049947;
 }
+.itemLable:nth-child(even) {
+  background-color: rgb(184, 3, 28);
+}
+
 .label {
   font-size: 24px;
   color: rgba(2, 23, 143, 0.952);

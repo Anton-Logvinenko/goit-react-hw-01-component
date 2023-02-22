@@ -1,7 +1,8 @@
-import css from './TransactionHistory.module.css'
+import { type } from '@testing-library/user-event/dist/type';
+import PropTypes from 'prop-types';
+import css from './TransactionHistory.module.css';
 
 export function TransactionHistory({ items }) {
- 
   return (
     <table className={css.transactionHistory}>
       <thead>
@@ -12,15 +13,26 @@ export function TransactionHistory({ items }) {
         </tr>
       </thead>
 
-      <tbody >
-        {items.map(item => (
-          <tr className={css.tableRow} key={item.id}>
-            <td className={css.tableData}>{item.type}</td>
-            <td className={css.tableData}>{item.amount}</td>
-            <td className={css.tableData}>{item.currency}</td>
+      <tbody>
+        {items.map(({ id, type, amount, currency }) => (
+          <tr className={css.tableRow} key={id}>
+            <td className={css.tableData}>{type}</td>
+            <td className={css.tableData}>{amount}</td>
+            <td className={css.tableData}>{currency}</td>
           </tr>
         ))}
       </tbody>
     </table>
   );
 }
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      type: PropTypes.string,
+      amount: PropTypes.string,
+      currency: PropTypes.string,
+    })
+  ),
+};
